@@ -1,0 +1,1 @@
+java -cp .\tribraryBd\hsqldb.jar org.hsqldb.server.Server --database.0 file:./tribraryBd/banco --dbname.0 banco
