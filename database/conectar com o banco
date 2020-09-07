@@ -1,7 +1,0 @@
-CONECTAR VIA TERMINAL
-
-Type: HSQL Database Engine Standalone
-Driver: org.hsqldb.jdbc.JDBCDriver
-URL: jdbc:hsqldb:file:banco;lock_file=false;readonly=true
-User: SA
-Password: senha

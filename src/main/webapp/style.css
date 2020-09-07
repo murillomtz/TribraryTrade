@@ -1,0 +1,154 @@
+.livro{
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+}
+
+.logout{
+    position: fixed;
+	top: 0px;
+	left: 95%;
+	weidth: 5px;
+}
+.cor{
+	text-color: white;
+}
+.dropdown-toggle{
+	color:#000000; 
+}
+
+.logoLogin{
+	
+    width: 175px;
+	text-align: center;
+}
+
+.tribrary{
+	font-family: Yu Gothic;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 35px;
+	color: #2F9FD1; 
+	text-align: center;
+	letter-spacing: 0.5px;
+}
+
+.body{
+	background-color: #2F9FD1; 	
+}
+
+.bodyLogin{
+	background-color: #2F9FD1; 	
+}
+
+.barraNavegacao{
+	background-color: #2F9FD1;
+	width: 100%px;
+	height: 25px;
+}
+
+.barraNavegacao2{
+	background-color: #ffffff;
+}
+
+.inputBusca{
+    width: 326px;
+}
+
+.footer{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: 30px;
+  width: 100%;
+  background-color: #ffffff;
+  color: #2F9FD1;
+  text-align: center;
+  padding: 1px 0;	
+}
+
+#conteudo{
+	background-color: #FFFFFF;
+	margin-top: 25px;
+	margin-bottom: 25px;
+	top: 60px;
+	bottom: 60px;
+	padding-bottom: 25px;
+    padding-top: 25px;
+    vertical-align: center;
+    box-shadow: 0 .3em 1em #000;
+}
+
+.labelFooter{
+	text-align: center;
+	font-family: Segoe UI;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 15px;
+	letter-spacing: 0.5px;
+	color: #2F9FD1; 	
+}
+
+.itensNavbar{
+	font-family: Segoe UI;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 15px;
+	letter-spacing: 0.5px;
+	color:#2F9FD1; 
+}
+
+.titulo{
+	font-family: Segoe UI;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 25px;
+	color: #2F9FD1; 
+	text-align: center;
+	letter-spacing: 0.5px;
+}
+
+.tituloForm{
+	font-family: Segoe UI;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 25px;
+	color: #2F9FD1; 
+	letter-spacing: 0.5px;
+}
+
+.texto{
+	text-align: center;
+	font-family: Segoe UI;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 15px;
+	letter-spacing: 0.5px;
+	color: #2F9FD1; 
+}
+
+.ColLogin{
+
+    top: 90px;
+	background-color: #FFFFFF;
+    padding-bottom: 25px;
+    padding-top: 25px;
+    vertical-align: center;
+    box-shadow: 0 .3em 1em #000;
+
+}
+
+
+
+.btnLogin{
+	background-color: #2F9FD1;
+	color: #FFFFFF; 
+
+}
+
+.btnPadrao{
+	background-color: #2F9FD1;
+	color: #FFFFFF; 
+}
