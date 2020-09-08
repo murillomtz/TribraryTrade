@@ -15,7 +15,6 @@ import br.ucsal.model.Genero;
 import br.ucsal.model.Livro;
 import br.ucsal.model.Usuario;
 import br.ucsal.util.Conexao;
-import br.ucsal.util.PersitenteLinkedList;
 import br.ucsal.util.interfaces.PersistentList;
 
 public class LivroPersistenceTest {
@@ -31,17 +30,18 @@ public class LivroPersistenceTest {
 	private static Usuario usuario;
 
 	private static Endereco endereco;
-	
+
 	private static LivroDAO ldao;
 
 	@BeforeEach
 	public void setup() throws SQLException {
 		ldao = new LivroDAO();
-		genero = new Genero(null, "genero teste");
-		endereco = new Endereco(null, "46589-000", "Teste", "teste", "teste", "291Test");
-		usuario = new Usuario(null, "Usuario teste", "teste", "016.648.658-89", "teste@teste.com", "(71)98785-9628",
-				"1234", 50, endereco);
-		livros = new PersitenteLinkedList<>();
+		// genero = new Genero(null, "genero teste");
+		// endereco = new Endereco(null, "46589-000", "Teste", "teste", "teste",
+		// "291Test");
+		// usuario = new Usuario(null, "Usuario teste", "teste", "016.648.658-89",
+		// "teste@teste.com", "(71)98785-9628","1234", 50, endereco);
+		// livros = new PersitenteLinkedList<>();
 		limparLista();
 	}
 
@@ -57,25 +57,23 @@ public class LivroPersistenceTest {
 		Assertions.assertNotNull(con);
 	}
 
-	//Verifica o metodo BuscarPorID()
- 	@Test
+	// Verifica o metodo BuscarPorID()
+	@Test
 	public void testFindById() {
 		Livro livro = ldao.buscarPorID(1);
 
 		Assertions.assertEquals("Kiera Cass", livro.getAutor());
 		Assertions.assertEquals("A seleção", livro.getTitulo());
-		
-		
+
 	}
- 	
- 	@Test
+
+	@Test
 	public void testFindByIdError() {
 		Livro livro = ldao.buscarPorID(1);
 
 		Assertions.assertNotEquals("Kiera ", livro.getAutor());
 		Assertions.assertNotEquals("A s", livro.getTitulo());
-		
-		
+
 	}
 
 	/*
@@ -111,11 +109,12 @@ public class LivroPersistenceTest {
 	 * Assertions.assertEquals("LIVRO3", livros.get(2)), () ->
 	 * Assertions.assertEquals("LIVRO4", livros.get(3)));
 	 * 
-	 * }*/
-	  
-	  public static void limparLista() throws SQLException {
-	  Assumptions.assumeTrue(Conexao.isConnectionValid()); // se a connection nao  for validada abortar os testes 
-	  // livros.delete(ID_LISTA,Conexao.getConnection(), TAB_NAME);
-	  }
-	 
+	 * }
+	 */
+
+	public static void limparLista() throws SQLException {
+		Assumptions.assumeTrue(Conexao.isConnectionValid()); // se a connection nao for validada abortar os testes
+		// livros.delete(ID_LISTA,Conexao.getConnection(), TAB_NAME);
+	}
+
 }
