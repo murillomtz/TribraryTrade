@@ -28,4 +28,15 @@ public class Conexao {
 
 		return con;
 	}
+
+	public static Boolean isConnectionValid() {
+
+		if (getConnection() != null) {
+			return true;
+		} else {
+			return false;
+		}
+
+	}
+
 }

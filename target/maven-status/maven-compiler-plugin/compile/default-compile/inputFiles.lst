@@ -22,9 +22,6 @@ C:\Dev\WorkSpaceMTZ\SuasTaskTest\src\main\java\br\ucsal\model\Troca.java
 C:\Dev\WorkSpaceMTZ\SuasTaskTest\src\main\java\br\ucsal\model\Genero.java
 C:\Dev\WorkSpaceMTZ\SuasTaskTest\src\main\java\br\ucsal\controller\BuscarLivroServlet.java
 C:\Dev\WorkSpaceMTZ\SuasTaskTest\src\main\java\br\ucsal\controller\LivroExcluirServlet.java
-C:\Dev\WorkSpaceMTZ\SuasTaskTest\src\main\java\br\ucsal\util\LoadTables.java
-C:\Dev\WorkSpaceMTZ\SuasTaskTest\src\main\java\br\ucsal\util\CriarBd.java
-C:\Dev\WorkSpaceMTZ\SuasTaskTest\src\main\java\br\ucsal\util\Insert.java
 C:\Dev\WorkSpaceMTZ\SuasTaskTest\src\main\java\br\ucsal\dao\EnderecoDAO.java
 C:\Dev\WorkSpaceMTZ\SuasTaskTest\src\main\java\br\ucsal\dao\LivrosDoUsuarioDAO.java
 C:\Dev\WorkSpaceMTZ\SuasTaskTest\src\main\java\br\ucsal\controller\IndexServlet.java
