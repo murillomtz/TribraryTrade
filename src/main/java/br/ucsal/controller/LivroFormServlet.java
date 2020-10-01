@@ -32,8 +32,13 @@ public class LivroFormServlet extends HttpServlet {
 		
 		if (idSLivro != null) {// Se houver um livro 
 			Integer id= Integer.parseInt(idSLivro);
-			Livro livro = livroDAO.buscarPorID(id);		
-			
+			Livro livro = null;
+			try {
+				livro = livroDAO.buscarPorID(id);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
 			if(livro.getUsuario().getIdUsuario()==idUser) { // Se o livro for do usuario da session
 				
 				request.setAttribute("lista", generoDAO.listar());

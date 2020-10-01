@@ -30,7 +30,11 @@ public class SolicitarTrocaServlet extends HttpServlet {
 		
 		
 		Notificacao notificacao = new Notificacao(null, livro, usuarioDAO.buscarPorId(idUser), "Esperando Resposta");
-		notificacao.setLivrosDoUsuario(livroDAO.listarPorUsuario(idUser));
+		try {
+			notificacao.setLivrosDoUsuario(livroDAO.listarPorUsuario(idUser));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		notificacaoDAO.inserir(notificacao);
 		
 		request.getRequestDispatcher("index.jsp").forward(request, response);

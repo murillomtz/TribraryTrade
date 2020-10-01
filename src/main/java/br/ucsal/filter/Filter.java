@@ -52,7 +52,11 @@ public class Filter implements javax.servlet.Filter {
 		}else {
 			if( httpServletRequest.getRequestURI().endsWith("index.jsp") ||httpServletRequest.getRequestURI().endsWith("Login")) {
 				LivroDAO livroDAO = new LivroDAO();
-				request.setAttribute("livros", livroDAO.listar());
+				try {
+					request.setAttribute("livros", livroDAO.listar());
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 				chain.doFilter(request, response);
 			}else {
 				chain.doFilter(request, response);

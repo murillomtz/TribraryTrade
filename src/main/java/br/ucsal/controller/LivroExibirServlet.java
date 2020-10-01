@@ -36,7 +36,12 @@ public class LivroExibirServlet extends HttpServlet {
 		LivroDAO livroDAO = new LivroDAO();
 		String idS= request.getParameter("id");
 		Integer idLivro = Integer.parseInt(idS);
-		Livro livro =  livroDAO.buscarPorID(idLivro);
+		Livro livro = null;
+		try {
+			livro = livroDAO.buscarPorID(idLivro);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
 		
 		NotificacaoDAO notificacaoDAO = new NotificacaoDAO();

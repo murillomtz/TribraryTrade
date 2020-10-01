@@ -48,9 +48,12 @@ public class RealizarTrocaServlet extends HttpServlet {
 		Notificacao notificacao = notificacaoDAO.getByID(idNotificacao);
 		notificacao.setStatus("Aceita");
 		notificacaoDAO.editarStatus(notificacao);
-		
-		
-		Livro livroDoUsuario=livroDAO.buscarPorID(idLivro);
+
+
+		Livro livroDoUsuario= null;
+		try {
+			livroDoUsuario = livroDAO.buscarPorID(idLivro);
+
 		livroDoUsuario.setDisponibilidade(false);
 		livroDAO.editar(livroDoUsuario);
 		livrosDaTRoca.add(livroDoUsuario);
@@ -80,6 +83,10 @@ public class RealizarTrocaServlet extends HttpServlet {
 			troca.setLivros(livrosDaTRoca);	
 			trocaDAO.inserir(troca);
 			request.getRequestDispatcher("index.jsp").forward(request, response);
+		}
+
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 			
 		

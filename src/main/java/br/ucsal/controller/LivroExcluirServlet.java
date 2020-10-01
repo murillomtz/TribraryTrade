@@ -25,7 +25,12 @@ public class LivroExcluirServlet extends HttpServlet {
 		Integer idUser = (Integer) request.getSession().getAttribute("idUsuario");
 		LivroDAO livroDAO = new LivroDAO();
 		Integer id = Integer.parseInt(idSLivro);
-		Livro livro = livroDAO.buscarPorID(id);
+		Livro livro = null;
+		try {
+			livro = livroDAO.buscarPorID(id);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		if (idSLivro != null && livro != null && livro.getUsuario().getIdUsuario() == idUser) {
 			try {
 			livroDAO.deletar(id);

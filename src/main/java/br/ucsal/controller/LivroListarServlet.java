@@ -20,7 +20,12 @@ public class LivroListarServlet extends HttpServlet {
 		LivroDAO livroDAO = new LivroDAO();
 		Integer id = (Integer) req.getSession().getAttribute("idUsuario");
 		System.out.println("User session for MEUSLIVROS " +id);
-		List<Livro> livros = livroDAO.listarPorUsuario(id);
+		List<Livro> livros = null;
+		try {
+			livros = livroDAO.listarPorUsuario(id);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		req.setAttribute("livros", livros);
 		req.getRequestDispatcher("livroListar.jsp").forward(req, resp);
 	}

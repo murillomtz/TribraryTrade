@@ -43,6 +43,8 @@ public class NotificacaoDAO {
 			ps.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 
 		return notificacoes;
@@ -58,7 +60,11 @@ public class NotificacaoDAO {
 		
 		
 		List<Livro> livrosUsuarioLogado =new ArrayList<Livro>();
-		livrosUsuarioLogado.addAll(livroDAO.listarPorUsuario(idUser));
+		try {
+			livrosUsuarioLogado.addAll(livroDAO.listarPorUsuario(idUser));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		try {
 			for (Livro l : livrosUsuarioLogado) {
 				String sql= "select * from notificacao where id_livro_desejado = ?;";
@@ -83,6 +89,8 @@ public class NotificacaoDAO {
 				ps.close();
 			}
 		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
@@ -164,6 +172,8 @@ public class NotificacaoDAO {
 			}
 
 		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return not;

@@ -25,7 +25,11 @@ public class IndexServlet extends HttpServlet {
 		System.out.println("Do Get Index");
 		LivroDAO livroDAO = new LivroDAO();
 
-		request.setAttribute("livros", livroDAO.listar());
+		try {
+			request.setAttribute("livros", livroDAO.listar());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 

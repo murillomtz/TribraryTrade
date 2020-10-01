@@ -18,7 +18,7 @@ public class LivroDAO {
 	private static GeneroDAO generoDAO = new GeneroDAO();
 	private static UsuarioDAO usuarioDAO = new UsuarioDAO();
 	
-	public List<Livro> listar() {
+	public List<Livro> listar() throws Exception {
 		List<Livro> livros = new ArrayList<Livro>();
 		try {
 			String sql = "SELECT * from livro where disponibilidade=true order by id;";
@@ -48,12 +48,14 @@ public class LivroDAO {
 			rs.close();
 			pstmt.close();
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new Exception("Lista nao localizado");
 		}
 		Collections.reverse(livros);
 		return livros;
 		}
-	public List<Livro> listarPorUsuario(Integer idU) {
+
+
+	public List<Livro> listarPorUsuario(Integer idU) throws Exception {
 		List<Livro> livros = new ArrayList<Livro>();
 		try {
 			String sql = "SELECT * from livro where id_usuario = ?;";
@@ -83,7 +85,7 @@ public class LivroDAO {
 			rs.close();
 			pstmt.close();
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new Exception("Lista nao localizado");
 		}
 
 		return livros;
@@ -111,7 +113,7 @@ public class LivroDAO {
 
 	}
 
-	public Livro buscarPorID(int id) {
+	public Livro buscarPorID(int id) throws Exception {
 		Livro livro = null;
 		try {
 			String sql = "select * from livro where id=? and disponibilidade=true;";
@@ -138,7 +140,7 @@ public class LivroDAO {
 			rs.close();
 			pstmt.close();
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new Exception("Id nao localizado");
 		}
 
 		return livro;
@@ -198,7 +200,8 @@ public class LivroDAO {
 	public void editar(Livro livro) {
 		//System.out.println("Entrando no Editar: " + livro);
 		try {
-			String sql = "UPDATE livro set titulo=?, autor = ?, sinopse = ?, detalhes = ?, foto_livro = ?, disponibilidade=?, id_usuario = ?, id_genero = ? where id = ?;";
+			String sql = "UPDATE livro set titulo=?, autor = ?, sinopse = ?, detalhes = ?, foto_livro = ?," +
+					" disponibilidade=?, id_usuario = ?, id_genero = ? where id = ?;";
 //			titulo, autor, sinopse, detalhes, foto_livro, id_genero, id_usuario
 			PreparedStatement pstmt = conexao.prepareStatement(sql);
 			pstmt.setString(1, livro.getTitulo());

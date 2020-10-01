@@ -38,8 +38,12 @@ public class PaginaInicialServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		LivroDAO livroDAO = new LivroDAO();
-		
-		request.setAttribute("livros", livroDAO.listar());
+
+		try {
+			request.setAttribute("livros", livroDAO.listar());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 

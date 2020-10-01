@@ -49,6 +49,8 @@ public class LivrosDoUsuarioDAO {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 		return livrosDoUsuario;
 	}
