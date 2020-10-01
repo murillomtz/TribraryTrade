@@ -8,7 +8,6 @@ import br.ucsal.model.Genero;
 import br.ucsal.model.Livro;
 import br.ucsal.model.Usuario;
 import br.ucsal.util.Conexao;
-import br.ucsal.util.interfaces.PersistentList;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.jupiter.api.*;
@@ -19,13 +18,16 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 
-public class LivroPersistenceTest {
+/**
+ * OS METODOS DESSA CLASSE SÃO BASEADOS NO BANCO DE DADOS ATUAIS
+ * AO DELETAR DADOS DO BANCO PODE HAVER ERROS.
+ * <p>
+ * ####   CASO VOCE ALTERE ALGO **NÃO COMITA** OS LOGS DOS DB ####
+ */
 
-    private static final String TAB_NAME = "livro";
+public class LivroDAOTest {
 
-    private static Long ID_LISTA = 100L;
-
-    private static PersistentList<Livro> livros;
+    private UsuarioDAO udao;
 
     private static Genero genero;
 
@@ -35,9 +37,9 @@ public class LivroPersistenceTest {
 
     private static LivroDAO ldao;
 
-    private static UsuarioDAO udao;
 
-    private static GeneroDAO gdao;
+
+    private GeneroDAO gdao;
 
 
     @Mock
@@ -58,12 +60,12 @@ public class LivroPersistenceTest {
         // usuario = new Usuario(null, "Usuario teste", "teste", "016.648.658-89",
         // "teste@teste.com", "(71)98785-9628","1234", 50, endereco);
         // livros = new PersitenteLinkedList<>();
-        limparLista();
+        confereConexao();
     }
 
     @AfterAll
     public static void teardown() throws SQLException {
-        limparLista();
+        confereConexao();
     }
 
     @Test
@@ -99,8 +101,8 @@ public class LivroPersistenceTest {
 
     @Test
     public void inserirTest() {
-        Usuario user = null;
-        Genero gen = null;
+        Usuario user = udao.buscarPorId(1);
+        Genero gen = gdao.buscarPorId(1);
 
         Livro book = criarLivro(user, gen);
         ldao.inserir(book);
@@ -118,28 +120,9 @@ public class LivroPersistenceTest {
         List<Livro> livros = ldao.buscarPorNomeOuAutor("kiera cass");
 
         Assert.assertTrue(livros.size() >= 1);
-        Assert.assertTrue(livros.get(0).getTitulo().equals("A seleçãos"));
+        Assert.assertTrue(livros.get(0).getTitulo().equals("A seleção"));
 
 
-
-    }
-
-    public Livro criarLivro(Usuario usuario, Genero genero) {
-        Livro nLivro = new Livro(null, "Livro para Test", "Autor test", "Snopse test",
-                "Detalhes test", "capaDefaut.jpg", genero, usuario);
-
-        return nLivro;
-    }
-
-    public Genero criarGenero() {
-        Genero nGenero = new Genero(null, "Genero test");
-        return nGenero;
-    }
-
-    public Usuario criarUsuario() {
-        Usuario nUsuario = new Usuario(null, "Usuario test", "Tester user", "23213213", "test@email.com", "3333-2222", "12345",
-                10, null);
-        return nUsuario;
     }
 
 
@@ -172,9 +155,36 @@ public class LivroPersistenceTest {
     }
 
 
-    public static void limparLista() throws SQLException {
+    public static void confereConexao() throws SQLException {
         Assumptions.assumeTrue(Conexao.isConnectionValid()); // se a connection nao for validada abortar os testes
         // livros.delete(ID_LISTA,Conexao.getConnection(), TAB_NAME);
+    }
+
+    public Livro criarLivro(Usuario usuario, Genero genero) {
+        Livro nLivro = new Livro(null, "Livro para Test", "Autor test", "Snopse test",
+                "Detalhes test", "capaDefaut.jpg", genero, usuario);
+
+        return nLivro;
+    }
+
+    public Genero criarGenero() {
+        Genero nGenero = new Genero(null, "Genero test");
+        return nGenero;
+    }
+
+    public Usuario criarUsuario() {
+        Endereco endereco = criarEndereco();
+        Usuario newUsuario = new Usuario(null, "Usuario test", "Tester user", "016.648.658-89", "test@email.com", "(71)98785-9628", "12345",
+                50, endereco);
+
+        return newUsuario;
+    }
+
+    public Endereco criarEndereco() {
+        Endereco endereco = new Endereco(null, "46589 - 000", "Salvador", "Pituba", "Laranjeiras"
+                , "205D");
+
+        return endereco;
     }
 
 }
