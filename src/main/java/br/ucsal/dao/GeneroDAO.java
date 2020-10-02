@@ -37,7 +37,7 @@ public class GeneroDAO {
 
 		public void inserir(Genero genero) {
 			try {
-				String sql = "insert into cursos (nome) values (?);";
+				String sql = "insert into genero (nome) values (?);";
 				PreparedStatement ps = conexao.prepareStatement(sql);
 				ps.setString(1, genero.getNome());
 				ps.executeUpdate();

@@ -51,7 +51,7 @@ public class UsuarioDAOTest {
 
 
     @Test
-    public void inserirAndBuscarParaLoginAndDeletarAndEditarTest() {
+    public void inserirAndBuscarParaLoginAndDeletarTest() {
 
         Usuario newUsuario = criarUsuarioTest("Usuario test");
 
@@ -101,9 +101,11 @@ public class UsuarioDAOTest {
         Assertions.assertNotNull(newUsuario);
 
         newUsuario.setNomeSocial("Test Já Editado");
-        udao.editar(newUsuario);
-        Assertions.assertEquals("Test Já Editado", newUsuario.getNomeSocial());
 
+        udao.editar(newUsuario);
+
+        String getNomeSocialUsuario = udao.buscarParaLogin("test@email.com", "12345").getNomeSocial();
+        Assertions.assertEquals("Test Já Editado", getNomeSocialUsuario);
 
     }
 
