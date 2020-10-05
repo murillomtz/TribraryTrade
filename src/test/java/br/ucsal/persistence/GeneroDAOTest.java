@@ -51,7 +51,7 @@ public class GeneroDAOTest {
 
 
     @Test
-    public void inserirAndBuscarParaLoginAndDeletarAndEditarTest() {
+    public void inserirAndBuscarPorNomeAndEditarAndDeletarTest() {
 
         Genero newGenero = criarGeneroTest("Genero test");
 
@@ -63,7 +63,7 @@ public class GeneroDAOTest {
         //Executar testes para esse usuario
 
         editarTest();
-        //deletarAndBuscarParaLoginTest();
+        deletarAndBuscarParaLoginTest();
 
 
     }
@@ -74,10 +74,10 @@ public class GeneroDAOTest {
         return newGenero;
     }
 
-    @Test
+
     public void deletarAndBuscarParaLoginTest() {
 
-        Genero newGenero = dao.buscarPorId(dao.listar().size() - 1);
+        Genero newGenero = dao.buscarPorNome("Genero test Já Editado!");
         Assertions.assertNotNull(newGenero);
 
         dao.deletar(newGenero.getIdGenero());
@@ -87,15 +87,14 @@ public class GeneroDAOTest {
     }
 
 
-    @Test
     public void editarTest() {
-        Genero newGenero = dao.buscarPorId(dao.listar().size() - 1);
+        Genero newGenero = dao.buscarPorNome("Genero test");
         Assertions.assertNotNull(newGenero);
 
         //newGenero.setNome("Romance");
         newGenero.setNome("Genero test Já Editado!");
         dao.editar(newGenero);
-        String getNomeGenero = dao.buscarPorId(dao.listar().size() - 1).getNome();
+        String getNomeGenero = dao.buscarPorNome("Genero test Já Editado!").getNome();
         Assertions.assertEquals("Genero test Já Editado!", getNomeGenero);
 
 
