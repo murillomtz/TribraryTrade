@@ -4,124 +4,123 @@ import java.util.List;
 
 public class Usuario {
 
-	private Integer idUsuario;
-	private String nome;
-	private String nomeSocial;
-	private String cpf;
-	private String email;
-	private String telefone;
-	private String senha;
-	private Integer pontosDeTroca;
-	private Endereco endereco;
-	private boolean contaAtiva;
-	private List<Livro> livros;
-	
-	public Usuario() {
-		
-	}
+    private Integer idUsuario;
+    private String nome;
+    private String nomeSocial;
+    private String cpf;
+    private String email;
+    private String telefone;
+    private String senha;
+    private Integer pontosDeTroca;
+    private Endereco endereco;
+    private boolean contaAtiva;
+    private List<Livro> livros;
 
-	public Usuario(Integer idUsuario, String nome, String nomeSocial, String cpf, String email, String telefone,
-			String senha, Integer pontos,Endereco endereco) {
-		super();
-		this.idUsuario = idUsuario;
-		this.nome = nome;
-		this.nomeSocial = nomeSocial;
-		this.cpf = cpf;
-		this.email = email;
-		this.telefone = telefone;
-		this.senha = senha;
-		this.pontosDeTroca=pontos;
-		this.endereco= endereco;
-	}
+    public Usuario() {
 
-	public Integer getIdUsuario() {
-		return idUsuario;
-	}
+    }
 
-	public void setIdUsuario(Integer idUsuario) {
-		this.idUsuario = idUsuario;
-	}
+    public Usuario(Integer idUsuario, String nome, String nomeSocial, String cpf, String email, String telefone,
+                   String senha, Integer pontos, Endereco endereco) {
+        super();
+        this.idUsuario = idUsuario;
+        this.nome = nome;
+        this.nomeSocial = nomeSocial;
+        this.cpf = cpf;
+        this.email = email;
+        this.telefone = telefone;
+        this.senha = senha;
+        this.pontosDeTroca = pontos;
+        this.endereco = endereco;
+    }
 
-	public Integer getPontosDeTroca() {
-		return pontosDeTroca;
-	}
+    public Integer getIdUsuario() {
+        return idUsuario;
+    }
 
-	public void setPontosDeTroca(Integer pontosDeTroca) {
-		this.pontosDeTroca = pontosDeTroca;
-	}
+    public void setIdUsuario(Integer idUsuario) {
+        this.idUsuario = idUsuario;
+    }
 
-	public String getNome() {
-		return nome;
-	}
+    public Integer getPontosDeTroca() {
+        return pontosDeTroca;
+    }
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+    public void setPontosDeTroca(Integer pontosDeTroca) {
+        this.pontosDeTroca = pontosDeTroca;
+    }
 
-	public String getNomeSocial() {
-		return nomeSocial;
-	}
+    public String getNome() {
+        return nome;
+    }
 
-	public void setNomeSocial(String nomeSocial) {
-		this.nomeSocial = nomeSocial;
-	}
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
-	public String getCpf() {
-		return cpf;
-	}
+    public String getNomeSocial() {
+        return nomeSocial;
+    }
 
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
+    public void setNomeSocial(String nomeSocial) {
+        this.nomeSocial = nomeSocial;
+    }
 
-	public String getEmail() {
-		return email;
-	}
+    public String getCpf() {
+        return cpf;
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
 
-	public String getTelefone() {
-		return telefone;
-	}
+    public String getEmail() {
+        return email;
+    }
 
-	public void setTelefone(String telefone) {
-		this.telefone = telefone;
-	}
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	public String getSenha() {
-		return senha;
-	}
+    public String getTelefone() {
+        return telefone;
+    }
 
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
 
-	public List<Livro> getLivros() {
-		return livros;
-	}
+    public String getSenha() {
+        return senha;
+    }
 
-	public void setLivros(List<Livro> livros) {
-		this.livros = livros;
-	}
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
 
-	public Endereco getEndereco() {
-		return endereco;
-	}
+    public List<Livro> getLivros() {
+        return livros;
+    }
 
-	public void setEndereco(Endereco endereco) {
-		this.endereco = endereco;
-	}
+    public void setLivros(List<Livro> livros) {
+        this.livros = livros;
+    }
 
-	public boolean isContaAtiva() {
-		return contaAtiva;
-	}
+    public Endereco getEndereco() {
+        return endereco;
+    }
 
-	public void setContaAtiva(boolean contaAtiva) {
-		this.contaAtiva = contaAtiva;
-	}
-	
-	
-	
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }
+
+    public boolean isContaAtiva() {
+        return contaAtiva;
+    }
+
+    public void setContaAtiva(boolean contaAtiva) {
+        this.contaAtiva = contaAtiva;
+    }
+
+
 }

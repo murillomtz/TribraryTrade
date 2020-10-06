@@ -18,11 +18,11 @@ import java.sql.SQLException;
  */
 public class UsuarioDAOTest {
 
-    private UsuarioDAO udao;
+    private UsuarioDAO dao;
 
     @BeforeEach
     public void setup() throws SQLException {
-        udao = new UsuarioDAO();
+        dao = new UsuarioDAO();
         // genero = new Genero(null, "genero teste");
         // endereco = new Endereco(null, "46589-000", "Teste", "teste", "teste",
         // "291Test");
@@ -55,7 +55,7 @@ public class UsuarioDAOTest {
 
         Usuario newUsuario = criarUsuarioTest("Usuario test");
 
-        udao.inserir(newUsuario);
+        dao.inserir(newUsuario);
 
 
         Assertions.assertEquals("Usuario test", newUsuario.getNome());
@@ -80,31 +80,31 @@ public class UsuarioDAOTest {
     @Test
     public void deletarAndBuscarParaLoginTest() {
 
-        Usuario newUsuario = udao.buscarParaLogin("test@email.com", "12345");
+        Usuario newUsuario = dao.buscarParaLogin("test@email.com", "12345");
         Assertions.assertNotNull(newUsuario);
 
-        udao.deletar(newUsuario.getIdUsuario());
-        Usuario otherUsuario = udao.buscarPorId(newUsuario.getIdUsuario());
+        dao.deletar(newUsuario.getIdUsuario());
+        Usuario otherUsuario = dao.buscarPorId(newUsuario.getIdUsuario());
         Assertions.assertNull(otherUsuario);
 
     }
 
     @Test
     public void buscarParaLoginTest() {
-        Usuario newUsuario = udao.buscarParaLogin("test@email.com", "12345");
+        Usuario newUsuario = dao.buscarParaLogin("test@email.com", "12345");
         Assertions.assertNotNull(newUsuario);
     }
 
     @Test
     public void editarTest() {
-        Usuario newUsuario = udao.buscarParaLogin("test@email.com", "12345");
+        Usuario newUsuario = dao.buscarParaLogin("test@email.com", "12345");
         Assertions.assertNotNull(newUsuario);
 
         newUsuario.setNomeSocial("Test Já Editado");
 
-        udao.editar(newUsuario);
+        dao.editar(newUsuario);
 
-        String getNomeSocialUsuario = udao.buscarParaLogin("test@email.com", "12345").getNomeSocial();
+        String getNomeSocialUsuario = dao.buscarParaLogin("test@email.com", "12345").getNomeSocial();
         Assertions.assertEquals("Test Já Editado", getNomeSocialUsuario);
 
     }

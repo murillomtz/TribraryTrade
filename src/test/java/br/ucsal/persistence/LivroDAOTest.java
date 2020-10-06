@@ -9,10 +9,7 @@ import br.ucsal.model.Livro;
 import br.ucsal.model.Usuario;
 import br.ucsal.util.Conexao;
 import org.junit.Assert;
-import org.junit.Rule;
 import org.junit.jupiter.api.*;
-import org.junit.rules.ExpectedException;
-import org.mockito.Mock;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -29,37 +26,23 @@ public class LivroDAOTest {
 
     private UsuarioDAO udao;
 
-    private static Genero genero;
+    private Genero genero;
 
-    private static Usuario usuario;
+    private Usuario usuario;
 
-    private static Endereco endereco;
+    private Endereco endereco;
 
-    private static LivroDAO ldao;
+    private LivroDAO dao;
 
+    private GeneroDAO generoDAO;
 
+    private UsuarioDAO usuarioDAO;
 
     private GeneroDAO gdao;
 
-
-    @Mock
-    private Livro livro = null;
-
-    @Mock
-    private static LivroDAO mockLivrodao;
-
-    @Rule
-    public ExpectedException exception = ExpectedException.none();
-
     @BeforeEach
     public void setup() throws SQLException {
-        ldao = new LivroDAO();
-        // genero = new Genero(null, "genero teste");
-        // endereco = new Endereco(null, "46589-000", "Teste", "teste", "teste",
-        // "291Test");
-        // usuario = new Usuario(null, "Usuario teste", "teste", "016.648.658-89",
-        // "teste@teste.com", "(71)98785-9628","1234", 50, endereco);
-        // livros = new PersitenteLinkedList<>();
+        dao = new LivroDAO();
         confereConexao();
     }
 
@@ -70,9 +53,35 @@ public class LivroDAOTest {
 
     @Test
     public void listarTest() throws Exception {
-        List<Livro> livros = ldao.listar();
 
-        Assert.assertTrue(livros.size() >= 3);
+
+        /*
+         * fazer assim quando arruamr o inserir
+         *
+         * */
+
+        /* //Cria 2 Generos para inserir no banco
+        Genero g1 = criarGeneroTest("Genero para listar 1");
+        Genero g2 = criarGeneroTest("Genero para listar 2");
+
+        //Inserir os generos do DB
+        dao.inserir(g1);
+        dao.inserir(g2);
+
+        List<Genero> generoList = dao.listar();
+
+        Genero nomeg1 = dao.buscarPorNome("Genero para listar 1");
+        Genero nomeg2 = dao.buscarPorNome("Genero para listar 2");
+
+        Assertions.assertEquals("Genero para listar 1", nomeg1.getNome());
+        Assertions.assertEquals("Genero para listar 2", nomeg2.getNome());
+
+        dao.deletar(nomeg1.getIdGenero());
+        dao.deletar(nomeg2.getIdGenero());*/
+
+        List<Livro> livros = dao.listar();
+
+        Assert.assertTrue(livros.size() >= 2);
     }
 
   /*  @Test
@@ -93,22 +102,28 @@ public class LivroDAOTest {
 
     @Test
     public void listarPorUsuarioTest() throws Exception {
-        List<Livro> livros = ldao.listarPorUsuario(1);
+        List<Livro> livros = dao.listarPorUsuario(1);
 
         Assert.assertTrue(livros.size() >= 2);
 
     }
 
     @Test
-    public void inserirTest() {
-        Usuario user = udao.buscarPorId(1);
-        Genero gen = gdao.buscarPorId(1);
+    public void inserirTest() throws SQLException {
+        Usuario user = criarUsuarioTest("UserTest Inserir");
+        Genero gen = criarGeneroTest("GeneroTest inserir");
 
-        Livro book = criarLivro(user, gen);
-        ldao.inserir(book);
-        ldao.buscarPorNomeOuAutor("Autor test");
+        usuarioDAO.inserir(user);
+        generoDAO.inserir(gen);
 
-        Assertions.assertEquals("Livro para Test", book.getTitulo());
+        Livro book = criarLivro(user, gen, "LivroTest inserir");
+        dao.inserir(book);
+        Livro livroEsperando = dao.buscarPorTitulo("LivroTest inserir");
+
+        Assertions.assertEquals("LivroTest inserir", livroEsperando);
+
+        usuarioDAO.deletar(usuarioDAO.buscarParaLogin("UserTest Inserir").getIdUsuario());
+        dao.deletar(livroEsperando.getIdLivro());
 
         //USAR METODO DE APAGAR
 
@@ -117,7 +132,7 @@ public class LivroDAOTest {
 
     @Test
     public void buscarPorNomeOuAutorTest() {
-        List<Livro> livros = ldao.buscarPorNomeOuAutor("kiera cass");
+        List<Livro> livros = dao.buscarPorNomeOuAutor("kiera cass");
 
         Assert.assertTrue(livros.size() >= 1);
         Assert.assertTrue(livros.get(0).getTitulo().equals("A seleção"));
@@ -136,7 +151,7 @@ public class LivroDAOTest {
     // Verifica o metodo BuscarPorID()
     @Test
     public void BuscarPorIDTest() throws Exception {
-        Livro livro = ldao.buscarPorID(1);
+        Livro livro = dao.buscarPorID(1);
 
         Assertions.assertEquals("Kiera Cass", livro.getAutor());
         Assertions.assertEquals("A seleção", livro.getTitulo());
@@ -147,7 +162,7 @@ public class LivroDAOTest {
     public void BuscarPorIDErrorTest() throws Exception {
 
 
-        Livro livro = ldao.buscarPorID(1);
+        Livro livro = dao.buscarPorID(1);
 
         Assertions.assertNotEquals("Kiera ", livro.getAutor());
         Assertions.assertNotEquals("A s", livro.getTitulo());
@@ -160,31 +175,24 @@ public class LivroDAOTest {
         // livros.delete(ID_LISTA,Conexao.getConnection(), TAB_NAME);
     }
 
-    public Livro criarLivro(Usuario usuario, Genero genero) {
-        Livro nLivro = new Livro(null, "Livro para Test", "Autor test", "Snopse test",
-                "Detalhes test", "capaDefaut.jpg", genero, usuario);
-
+    public Livro criarLivro(Usuario usuario, Genero genero, String titulo) {
+        Livro nLivro = new Livro(null, titulo, "Autor test", "Snopse test",
+                "Detalhes test", "main\\webapp\\img\\img_livros\\11-06-2020\\capaDefaut.jpg", genero, usuario);
+//C:\Dev\WorkSpaceMTZ\Tribary\src\main\webapp\img\img_livros\11-06-2020
         return nLivro;
     }
 
-    public Genero criarGenero() {
-        Genero nGenero = new Genero(null, "Genero test");
-        return nGenero;
+    private Genero criarGeneroTest(String nome) {
+        Genero newGenero = new Genero(null, nome);
+        return newGenero;
     }
 
-    public Usuario criarUsuario() {
-        Endereco endereco = criarEndereco();
-        Usuario newUsuario = new Usuario(null, "Usuario test", "Tester user", "016.648.658-89", "test@email.com", "(71)98785-9628", "12345",
-                50, endereco);
-
-        return newUsuario;
-    }
-
-    public Endereco criarEndereco() {
+    private Usuario criarUsuarioTest(String nome) {
         Endereco endereco = new Endereco(null, "46589 - 000", "Salvador", "Pituba", "Laranjeiras"
                 , "205D");
-
-        return endereco;
+        Usuario newUsuario = new Usuario(null, nome, "Tester user", "016.648.658-89", "test@email.com", "(71)98785-9628", "12345",
+                50, endereco);
+        return newUsuario;
     }
 
 }

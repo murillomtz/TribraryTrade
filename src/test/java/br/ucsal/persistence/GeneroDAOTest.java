@@ -9,6 +9,8 @@ import org.junit.jupiter.api.*;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * OS METODOS DESSA CLASSE SÃO BASEADOS NO BANCO DE DADOS ATUAIS
@@ -23,12 +25,6 @@ public class GeneroDAOTest {
     @BeforeEach
     public void setup() throws SQLException {
         dao = new GeneroDAO();
-        // genero = new Genero(null, "genero teste");
-        // endereco = new Endereco(null, "46589-000", "Teste", "teste", "teste",
-        // "291Test");
-        // usuario = new Usuario(null, "Usuario teste", "teste", "016.648.658-89",
-        // "teste@teste.com", "(71)98785-9628","1234", 50, endereco);
-        // livros = new PersitenteLinkedList<>();
         confereConexao();
     }
 
@@ -56,8 +52,6 @@ public class GeneroDAOTest {
         Genero newGenero = criarGeneroTest("Genero test");
 
         dao.inserir(newGenero);
-
-
         Assertions.assertEquals("Genero test", newGenero.getNome());
 
         //Executar testes para esse usuario
@@ -98,6 +92,29 @@ public class GeneroDAOTest {
         Assertions.assertEquals("Genero test Já Editado!", getNomeGenero);
 
 
+    }
+
+    @Test
+    public void listarTest() {
+
+        //Cria 2 Generos para inserir no banco
+        Genero g1 = criarGeneroTest("Genero para listar 1");
+        Genero g2 = criarGeneroTest("Genero para listar 2");
+
+        //Inserir os generos do DB
+        dao.inserir(g1);
+        dao.inserir(g2);
+
+        List<Genero> generoList = dao.listar();
+
+        Genero nomeg1 = dao.buscarPorNome("Genero para listar 1");
+        Genero nomeg2 = dao.buscarPorNome("Genero para listar 2");
+
+        Assertions.assertEquals("Genero para listar 1", nomeg1.getNome());
+        Assertions.assertEquals("Genero para listar 2", nomeg2.getNome());
+
+        dao.deletar(nomeg1.getIdGenero());
+        dao.deletar(nomeg2.getIdGenero());
     }
 
 
