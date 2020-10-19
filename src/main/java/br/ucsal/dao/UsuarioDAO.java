@@ -1,17 +1,12 @@
 package br.ucsal.dao;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
-
 import br.ucsal.model.Endereco;
-import br.ucsal.model.Genero;
 import br.ucsal.model.Usuario;
 import br.ucsal.util.Conexao;
+
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UsuarioDAO {
 
@@ -194,6 +189,7 @@ public class UsuarioDAO {
                 usuario.setSenha(rs.getString("senha"));
                 usuario.setContaAtiva(rs.getBoolean("conta_ativa"));
                 EnderecoDAO enderecoDAO = new EnderecoDAO();
+                int id = usuario.getIdUsuario();
                 Endereco endereco = enderecoDAO.buscarPorIDUsuario(id);
                 usuario.setEndereco(endereco);
             }
@@ -203,7 +199,7 @@ public class UsuarioDAO {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return Usuario;
+        return usuario;
     }
 
 //	public void close() {

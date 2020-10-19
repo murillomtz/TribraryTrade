@@ -1,0 +1,31 @@
+
+e
+java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(”®Ãœ
+e
+java:S2095U"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ñÃ‰Ø
+e
+java:S20954"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ºÉœ
+f
+java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ñÃ‰Ø
+f
+java:S2095´"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ñÃ‰Ø
+e
+java:S2095q"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ñÃ‰Ø
+f
+java:S2095š"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ñÃ‰Ø
+b
+java:S1192c"LDefine a constant instead of duplicating this literal "conta_ativa" 3 times.(úÿô¬
+b
+java:S1192"LDefine a constant instead of duplicating this literal "nome_social" 4 times.(øµö¸
+c
+java:S1192""MDefine a constant instead of duplicating this literal "pontos_troca" 4 times.(‹€—É
+[
+java:S1192 "FDefine a constant instead of duplicating this literal "email" 4 times.(şÿßL
+_
+java:S1192!"IDefine a constant instead of duplicating this literal "telefone" 4 times.(ˆù¡é
+a
+java:S1192#"FDefine a constant instead of duplicating this literal "senha" 4 times.(šï¶®ùÿÿÿÿ
+H
+java:S1128"2Remove this unused import 'br.ucsal.model.Genero'.(‚‚„°
+R	java:S125³"<This block of commented-out lines of code should be removed.(ÿ „
+W	java:S125Ñ"<This block of commented-out lines of code should be removed.(‹îÓùùÿÿÿÿ

@@ -22,15 +22,8 @@ import java.util.List;
  * ####   CASO VOCE ALTERE ALGO **NÃO COMITA** OS LOGS DOS DB ####
  */
 
-public class LivroDAOTest {
+public class LivroDAOIntegradoTest {
 
-    private UsuarioDAO udao;
-
-    private Genero genero;
-
-    private Usuario usuario;
-
-    private Endereco endereco;
 
     private LivroDAO dao;
 
@@ -43,6 +36,8 @@ public class LivroDAOTest {
     @BeforeEach
     public void setup() throws SQLException {
         dao = new LivroDAO();
+        generoDAO = new GeneroDAO();
+        usuarioDAO = new UsuarioDAO();
         confereConexao();
     }
 
@@ -53,81 +48,33 @@ public class LivroDAOTest {
 
     @Test
     public void listarTest() throws Exception {
-
-
-        /*
-         * fazer assim quando arruamr o inserir
-         *
-         * */
-
-        /* //Cria 2 Generos para inserir no banco
-        Genero g1 = criarGeneroTest("Genero para listar 1");
-        Genero g2 = criarGeneroTest("Genero para listar 2");
-
-        //Inserir os generos do DB
-        dao.inserir(g1);
-        dao.inserir(g2);
-
-        List<Genero> generoList = dao.listar();
-
-        Genero nomeg1 = dao.buscarPorNome("Genero para listar 1");
-        Genero nomeg2 = dao.buscarPorNome("Genero para listar 2");
-
-        Assertions.assertEquals("Genero para listar 1", nomeg1.getNome());
-        Assertions.assertEquals("Genero para listar 2", nomeg2.getNome());
-
-        dao.deletar(nomeg1.getIdGenero());
-        dao.deletar(nomeg2.getIdGenero());*/
-
         List<Livro> livros = dao.listar();
 
         Assert.assertTrue(livros.size() >= 2);
     }
 
-  /*  @Test
-    public void listarExeptionTest() throws Exception {
-        List<Livro> livros = ldao.listar();
-
-        when(mockLivrodao.listar()).thenThrow(new Exception("Lista nao localizado"));
-        exception.expect(Exception.class);
-        exception.expectMessage("Lista nao localizado");
-
-
-
-
-        Assert.assertThat("Lista nao localizado", CoreMatchers.is("Lista nao localizado"));
-
-    }*/
-
-
     @Test
     public void listarPorUsuarioTest() throws Exception {
         List<Livro> livros = dao.listarPorUsuario(1);
 
-        Assert.assertTrue(livros.size() >= 2);
+        Assert.assertTrue(livros.size() >= 1);
 
     }
 
     @Test
     public void inserirTest() throws SQLException {
-        Usuario user = criarUsuarioTest("UserTest Inserir");
-        Genero gen = criarGeneroTest("GeneroTest inserir");
 
-        usuarioDAO.inserir(user);
-        generoDAO.inserir(gen);
+        Genero gen = generoDAO.buscarPorId(1);
+        Usuario user = usuarioDAO.buscarPorId(1);
 
         Livro book = criarLivro(user, gen, "LivroTest inserir");
         dao.inserir(book);
         Livro livroEsperando = dao.buscarPorTitulo("LivroTest inserir");
 
-        Assertions.assertEquals("LivroTest inserir", livroEsperando);
+        Assertions.assertEquals("LivroTest inserir", livroEsperando.getTitulo());
 
-        usuarioDAO.deletar(usuarioDAO.buscarParaLogin("UserTest Inserir").getIdUsuario());
+
         dao.deletar(livroEsperando.getIdLivro());
-
-        //USAR METODO DE APAGAR
-
-
     }
 
     @Test
@@ -177,7 +124,7 @@ public class LivroDAOTest {
 
     public Livro criarLivro(Usuario usuario, Genero genero, String titulo) {
         Livro nLivro = new Livro(null, titulo, "Autor test", "Snopse test",
-                "Detalhes test", "main\\webapp\\img\\img_livros\\11-06-2020\\capaDefaut.jpg", genero, usuario);
+                "Detalhes test", "foto.jpeg", genero, usuario);
 //C:\Dev\WorkSpaceMTZ\Tribary\src\main\webapp\img\img_livros\11-06-2020
         return nLivro;
     }

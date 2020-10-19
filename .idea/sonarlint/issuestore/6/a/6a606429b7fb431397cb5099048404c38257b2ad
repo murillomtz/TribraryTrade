@@ -1,0 +1,21 @@
+
+e
+java:S2095+"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(”®Ãœ
+e
+java:S20959"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ñÃ‰Ø
+e
+java:S2095M"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ñÃ‰Ø
+e
+java:S2095\"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ñÃ‰Ø
+e
+java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ñÃ‰Ø
+e
+java:S2095m"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ñÃ‰Ø
+4
+java:S1128"Remove this duplicated import.(‚‚„°
+I
+java:S1128"3Remove this unused import 'br.ucsal.model.Usuario'.(êûß¨
+E
+java:S1128"/Remove this unused import 'java.sql.Statement'.(ÏÖÔø
+Q	java:S125l"<This block of commented-out lines of code should be removed.(ÿ „
+Q	java:S125"<This block of commented-out lines of code should be removed.(ñ‚ƒ¢
