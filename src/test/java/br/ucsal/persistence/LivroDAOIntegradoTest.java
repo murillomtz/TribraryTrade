@@ -15,6 +15,8 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 
+import static br.ucsal.builder.LivroBuilder.umLivroDisponivel;
+
 /**
  * OS METODOS DESSA CLASSE SÃO BASEADOS NO BANCO DE DADOS ATUAIS
  * AO DELETAR DADOS DO BANCO PODE HAVER ERROS.
@@ -67,7 +69,8 @@ public class LivroDAOIntegradoTest {
         Genero gen = generoDAO.buscarPorId(1);
         Usuario user = usuarioDAO.buscarPorId(1);
 
-        Livro book = criarLivro(user, gen, "LivroTest inserir");
+        Livro book = umLivroDisponivel().comTitulo("LivroTest inserir").comUsuario(user).comGenero(gen).agora();
+
         dao.inserir(book);
         Livro livroEsperando = dao.buscarPorTitulo("LivroTest inserir");
 
