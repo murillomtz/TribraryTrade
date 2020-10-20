@@ -93,14 +93,14 @@ public class LivroDAOIntegradoTest {
 
     // Verifica se a conexão é nula. Se não for nula, ele passa!
     @Test
-    public void GetConexaoTest() {
+    public void getConexaoTest() {
         Connection con = Conexao.getConnection();
         Assertions.assertNotNull(con);
     }
 
     // Verifica o metodo BuscarPorID()
     @Test
-    public void BuscarPorIDTest() throws Exception {
+    public void buscarPorIDTest() throws Exception {
         Livro livro = dao.buscarPorID(1);
 
         Assertions.assertEquals("Kiera Cass", livro.getAutor());
@@ -109,7 +109,31 @@ public class LivroDAOIntegradoTest {
     }
 
     @Test
-    public void BuscarPorIDErrorTest() throws Exception {
+    public void editarLivro() throws SQLException {
+        Genero gen = generoDAO.buscarPorId(1);
+        Usuario user = usuarioDAO.buscarPorId(1);
+
+        Livro book = umLivroDisponivel().comTitulo("LivroTest inserir").comUsuario(user).comGenero(gen).agora();
+
+        dao.inserir(book);
+        Livro livroEsperando = dao.buscarPorTitulo("LivroTest inserir");
+
+        Assertions.assertEquals("LivroTest inserir", livroEsperando.getTitulo());
+
+        livroEsperando.setTitulo("LivroTest EDITADO");
+
+        dao.editar(livroEsperando);
+        livroEsperando = dao.buscarPorTitulo("LivroTest EDITADO");
+
+        Assertions.assertEquals("LivroTest EDITADO", livroEsperando.getTitulo());
+
+
+       dao.deletar(livroEsperando.getIdLivro());
+
+    }
+
+    @Test
+    public void buscarPorIDErrorTest() throws Exception {
 
 
         Livro livro = dao.buscarPorID(1);
@@ -125,24 +149,5 @@ public class LivroDAOIntegradoTest {
         // livros.delete(ID_LISTA,Conexao.getConnection(), TAB_NAME);
     }
 
-    public Livro criarLivro(Usuario usuario, Genero genero, String titulo) {
-        Livro nLivro = new Livro(null, titulo, "Autor test", "Snopse test",
-                "Detalhes test", "foto.jpeg", genero, usuario);
-//C:\Dev\WorkSpaceMTZ\Tribary\src\main\webapp\img\img_livros\11-06-2020
-        return nLivro;
-    }
-
-    private Genero criarGeneroTest(String nome) {
-        Genero newGenero = new Genero(null, nome);
-        return newGenero;
-    }
-
-    private Usuario criarUsuarioTest(String nome) {
-        Endereco endereco = new Endereco(null, "46589 - 000", "Salvador", "Pituba", "Laranjeiras"
-                , "205D");
-        Usuario newUsuario = new Usuario(null, nome, "Tester user", "016.648.658-89", "test@email.com", "(71)98785-9628", "12345",
-                50, endereco);
-        return newUsuario;
-    }
 
 }
