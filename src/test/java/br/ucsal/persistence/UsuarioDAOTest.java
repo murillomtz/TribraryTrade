@@ -1,6 +1,7 @@
 package br.ucsal.persistence;
 
 
+import br.ucsal.dao.EnderecoDAO;
 import br.ucsal.dao.UsuarioDAO;
 import br.ucsal.model.Endereco;
 import br.ucsal.model.Usuario;
@@ -9,6 +10,9 @@ import org.junit.jupiter.api.*;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+
+import static br.ucsal.builder.EndereçoBuilder.umEndereco;
+import static br.ucsal.builder.UsuarioBuilder.umUsuario;
 
 /**
  * OS METODOS DESSA CLASSE SÃO BASEADOS NO BANCO DE DADOS ATUAIS
@@ -20,20 +24,12 @@ public class UsuarioDAOTest {
 
     private UsuarioDAO dao;
 
+    private EnderecoDAO endDao;
+
     @BeforeEach
     public void setup() throws SQLException {
         dao = new UsuarioDAO();
-        // genero = new Genero(null, "genero teste");
-        // endereco = new Endereco(null, "46589-000", "Teste", "teste", "teste",
-        // "291Test");
-        // usuario = new Usuario(null, "Usuario teste", "teste", "016.648.658-89",
-        // "teste@teste.com", "(71)98785-9628","1234", 50, endereco);
-        // livros = new PersitenteLinkedList<>();
-        confereConexao();
-    }
-
-    @AfterAll
-    public static void teardown() throws SQLException {
+        endDao = new EnderecoDAO();
         confereConexao();
     }
 
@@ -53,28 +49,24 @@ public class UsuarioDAOTest {
     @Test
     public void inserirAndBuscarParaLoginAndDeletarTest() {
 
-        Usuario newUsuario = criarUsuarioTest("Usuario test");
+        Endereco endereco = umEndereco().agora();
 
-        dao.inserir(newUsuario);
-
-
-        Assertions.assertEquals("Usuario test", newUsuario.getNome());
-
-        //Executar testes para esse usuario
-        buscarParaLoginTest();
-        editarTest();
-        deletarAndBuscarParaLoginTest();
+        Usuario newUser = umUsuario().comNome("Usuario test").comEndereco(null).agora();
+       // System.out.println(endereco);
+        dao.inserir(newUser);
+        newUser = dao.buscarPorNome("Usuario test");
+        endDao.inserir(newUser);
 
 
-    }
+        Usuario userEsperado = dao.buscarPorNome("Usuario test");
+        endereco = endDao.buscarPorIDUsuario(userEsperado.getIdUsuario());
+
+        Assertions.assertEquals("Usuario test", userEsperado.getNome());
 
 
-    private Usuario criarUsuarioTest(String nome) {
-        Endereco endereco = new Endereco(null, "46589 - 000", "Salvador", "Pituba", "Laranjeiras"
-                , "205D");
-        Usuario newUsuario = new Usuario(null, nome, "Tester user", "016.648.658-89", "test@email.com", "(71)98785-9628", "12345",
-                50, endereco);
-        return newUsuario;
+        dao.deletar(userEsperado.getIdUsuario());
+        endDao.deletar(endereco.getIdEndereco());
+
     }
 
     @Test

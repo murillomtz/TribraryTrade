@@ -43,10 +43,6 @@ public class LivroDAOIntegradoTest {
         confereConexao();
     }
 
-    @AfterAll
-    public static void teardown() throws SQLException {
-        confereConexao();
-    }
 
     @Test
     public void listarTest() throws Exception {
@@ -128,7 +124,7 @@ public class LivroDAOIntegradoTest {
         Assertions.assertEquals("LivroTest EDITADO", livroEsperando.getTitulo());
 
 
-       dao.deletar(livroEsperando.getIdLivro());
+        dao.deletar(livroEsperando.getIdLivro());
 
     }
 

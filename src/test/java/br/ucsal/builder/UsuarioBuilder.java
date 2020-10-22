@@ -22,6 +22,7 @@ public class UsuarioBuilder {
         builder.usuario = new Usuario();
         builder.usuario.setIdUsuario(null);
         builder.usuario.setNome("Usuario Builder");
+        builder.usuario.setNomeSocial("Usuario builder Social");
         builder.usuario.setCpf("016.648.658-89");
         builder.usuario.setEmail("userbuilder@email.com");
         builder.usuario.setTelefone("9999-9999");
@@ -36,6 +37,21 @@ public class UsuarioBuilder {
         builder.usuario.setLivros(livros);
         return builder;
 
+    }
+
+    public UsuarioBuilder comEndereco(Endereco endereco) {
+
+        usuario.setEndereco(endereco);
+
+        return this;
+    }
+
+
+    public UsuarioBuilder comNome(String nome) {
+
+        usuario.setNome(nome);
+
+        return this;
     }
 
     public UsuarioBuilder comNovoLivro(String titulo) {
