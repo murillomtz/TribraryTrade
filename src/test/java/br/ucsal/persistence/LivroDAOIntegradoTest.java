@@ -1,21 +1,22 @@
 package br.ucsal.persistence;
 
+import br.ucsal.builder.LivroBuilderModeNeiva;
 import br.ucsal.dao.GeneroDAO;
 import br.ucsal.dao.LivroDAO;
 import br.ucsal.dao.UsuarioDAO;
-import br.ucsal.model.Endereco;
 import br.ucsal.model.Genero;
 import br.ucsal.model.Livro;
 import br.ucsal.model.Usuario;
 import br.ucsal.util.Conexao;
 import org.junit.Assert;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Assumptions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
-
-import static br.ucsal.builder.LivroBuilder.umLivroDisponivel;
 
 /**
  * OS METODOS DESSA CLASSE SÃO BASEADOS NO BANCO DE DADOS ATUAIS
@@ -65,8 +66,8 @@ public class LivroDAOIntegradoTest {
         Genero gen = generoDAO.buscarPorId(1);
         Usuario user = usuarioDAO.buscarPorId(1);
 
-        Livro book = umLivroDisponivel().comTitulo("LivroTest inserir").comUsuario(user).comGenero(gen).agora();
-
+        Livro book = LivroBuilderModeNeiva.umLivro().comTitulo("LivroTest inserir")
+                .comUsuario(user).comGenero(gen).build();
         dao.inserir(book);
         Livro livroEsperando = dao.buscarPorTitulo("LivroTest inserir");
 
@@ -109,9 +110,13 @@ public class LivroDAOIntegradoTest {
         Genero gen = generoDAO.buscarPorId(1);
         Usuario user = usuarioDAO.buscarPorId(1);
 
-        Livro book = umLivroDisponivel().comTitulo("LivroTest inserir").comUsuario(user).comGenero(gen).agora();
+
+        Livro book = LivroBuilderModeNeiva.umLivro().comTitulo("LivroTest inserir")
+                .comUsuario(user).comGenero(gen).build();
 
         dao.inserir(book);
+        // dao.inserir(book);
+
         Livro livroEsperando = dao.buscarPorTitulo("LivroTest inserir");
 
         Assertions.assertEquals("LivroTest inserir", livroEsperando.getTitulo());

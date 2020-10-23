@@ -13,7 +13,5 @@ e
 5src/test/java/br/ucsal/persistence/GeneroDAOTest.java,5\5\554a83302718ba0a52a1d4abed6613d14d688a80
 Y
 )src/main/java/br/ucsal/dao/GeneroDAO.java,6\a\6a606429b7fb431397cb5099048404c38257b2ad
-d
-4src/test/java/br/ucsal/persistence/LivroDAOTest.java,1\4\14d4e5ca46ce82618e62a7a77a5500106e4f463c
 Z
 *src/main/java/br/ucsal/dao/UsuarioDAO.java,8\d\8de919ae07d821741cf4fa8b3f90a700c8ebda67

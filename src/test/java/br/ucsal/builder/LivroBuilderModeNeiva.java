@@ -32,6 +32,10 @@ public class LivroBuilderModeNeiva {
     public LivroBuilderModeNeiva() {
     }
 
+    public static LivroBuilderModeNeiva umLivro() {
+        return new LivroBuilderModeNeiva();
+    }
+
     public LivroBuilderModeNeiva comId(Integer id) {
         this.id = id;
         return this;
