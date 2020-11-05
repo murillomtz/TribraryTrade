@@ -15,6 +15,10 @@ public class GeneroBuilderModeNeiva {
     public GeneroBuilderModeNeiva() {
     }
 
+    public static GeneroBuilderModeNeiva umGenero() {
+        return new GeneroBuilderModeNeiva();
+    }
+
     public GeneroBuilderModeNeiva comId(Integer id) {
         this.id = id;
         return this;
