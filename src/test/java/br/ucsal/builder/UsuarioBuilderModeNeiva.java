@@ -37,6 +37,10 @@ public class UsuarioBuilderModeNeiva {
     public UsuarioBuilderModeNeiva() {
     }
 
+    public static UsuarioBuilderModeNeiva umUsuario() {
+        return new UsuarioBuilderModeNeiva();
+    }
+
     public UsuarioBuilderModeNeiva comId(Integer id) {
         this.id = id;
         return this;

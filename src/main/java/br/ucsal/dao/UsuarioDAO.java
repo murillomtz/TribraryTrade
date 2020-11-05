@@ -15,7 +15,7 @@ public class UsuarioDAO {
     public List<Usuario> listar() {
         List<Usuario> usuarios = new ArrayList<>();
         try {
-            String sql = "select * from usuario;";
+            String sql = "select id, nome, nome_social, cpf, email, telefone, pontos_troca, senha from usuario;";
             PreparedStatement ps = conexao.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
@@ -29,6 +29,7 @@ public class UsuarioDAO {
                 u.setPontosDeTroca(rs.getInt("pontos_troca"));
                 u.setSenha(rs.getString("senha"));
 
+                usuarios.add(u);
             }
             rs.close();
             ps.close();
@@ -130,6 +131,7 @@ public class UsuarioDAO {
         return usuario;
     }
 
+    //TODO precisa deletar antes o endereço para depois excluir o usuario ALTERAR O COMANDO SQL
     public void deletar(Integer id) {
         String sql = "delete from usuario where id=?;";
         try {
