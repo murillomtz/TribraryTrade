@@ -23,7 +23,7 @@ public class HistoricoTrocas extends HttpServlet{
 		LivroTrocaDAO livroTrocaDAO = new LivroTrocaDAO();
 		List<Troca> trocas = livroTrocaDAO.buscarHistorico(id);
 		
-		
+		//
 		request.setAttribute("trocas", trocas);
 		request.getRequestDispatcher("historicoTrocas.jsp").forward(request, response);
 		

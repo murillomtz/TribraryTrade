@@ -53,7 +53,7 @@ public class LoginJSPTest {
         String conteudo = driver.getPageSource();
 
         // Verificar se retorno inclui "Cogna Educação"
-        ;
+        
         Assertions.assertEquals("http://localhost:8081/Login", driver.getCurrentUrl());
     }
 }
