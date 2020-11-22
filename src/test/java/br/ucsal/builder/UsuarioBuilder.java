@@ -7,7 +7,7 @@ import br.ucsal.model.Usuario;
 import java.util.ArrayList;
 import java.util.List;
 
-import static br.ucsal.builder.EndereçoBuilder.umEndereco;
+import static br.ucsal.builder.EnderecoBuilder.umEndereco;
 import static br.ucsal.builder.LivroBuilder.umLivroDisponivel;
 
 public class UsuarioBuilder {

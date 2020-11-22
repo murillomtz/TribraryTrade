@@ -2,15 +2,15 @@ package br.ucsal.builder;
 
 import br.ucsal.model.Endereco;
 
-public class EndereçoBuilder {
+public class EnderecoBuilder {
 
     private Endereco endereco;
 
-    private EndereçoBuilder() {
+    private EnderecoBuilder() {
     }
 
-    public static EndereçoBuilder umEndereco() {
-        EndereçoBuilder builder = new EndereçoBuilder();
+    public static EnderecoBuilder umEndereco() {
+        EnderecoBuilder builder = new EnderecoBuilder();
 
         builder.endereco = new Endereco();
         builder.endereco.setIdEndereco(null);
