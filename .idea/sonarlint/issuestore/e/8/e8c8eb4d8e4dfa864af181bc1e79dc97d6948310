@@ -1,0 +1,38 @@
+
+M
+java:S1481O"+Remove this unused "titulo" local variable.(δ„€Λÿÿÿÿÿ8πιªμέ.
+O
+java:S1481T"-Remove this unused "generoID" local variable.(ώ²ΑΜϊÿÿÿÿ8πιªμέ.
+U	java:S106b"9Replace this use of System.out or System.err by a logger.(άΐ–®8πιªμέ.
+J
+java:S1481R"-Remove this unused "detalhes" local variable.(ρΑΙΆ8πιªμέ.
+Z	java:S106]"9Replace this use of System.out or System.err by a logger.(¬ϊύ«ψÿÿÿÿ8πιªμέ.
+X
+java:S1854Q";Remove this useless assignment to local variable "sinopse".(π‚α›8πιªμέ.
+\
+java:S1161N":Add the "@Override" annotation above this method signature(΄Θ®‚ύÿÿÿÿ8πιªμέ.
+^
+java:S1854T"<Remove this useless assignment to local variable "generoID".(ώ²ΑΜϊÿÿÿÿ8πιªμέ.
+[
+java:S1854P"9Remove this useless assignment to local variable "autor".(ƒΧΑεωÿÿÿÿ8πιªμέ.
+ƒ
+java:S1989K"aHandle the following exceptions that could be thrown by "forward": ServletException, IOException.(ϋ΅έΕόÿÿÿÿ8πιªμέ.
+T
+java:S1135"2Complete the task associated to this TODO comment.(ƒ® ϊÿÿÿÿ8πιªμέ.
+]	java:S125+"<This block of commented-out lines of code should be removed.(ρ¥ωψÿÿÿÿ8ώΔ€ή.
+\
+java:S1854O":Remove this useless assignment to local variable "titulo".(δ„€Λÿÿÿÿÿ8πιªμέ.
+{
+java:S1989e"`Handle the following exceptions that could be thrown by "doPost": ServletException, IOException.(³ζ£υωÿÿÿÿ
+I
+java:S1481Q",Remove this unused "sinopse" local variable.(π‚α›8πιªμέ.
+v
+java:S1989A"YHandle the following exception that could be thrown by "parseInt": NumberFormatException.(ΟΕΧ8πιªμέ.
+U	java:S106["9Replace this use of System.out or System.err by a logger.(ώ΄¬8πιªμέ.
+X	java:S125U"<This block of commented-out lines of code should be removed.(ά΄τƒ8πιªμέ.
+\
+java:S1161 ":Add the "@Override" annotation above this method signature(ώ³‚”ϋÿÿÿÿ8πιªμέ.
+Y
+java:S1854R"<Remove this useless assignment to local variable "detalhes".(ρΑΙΆ8πιªμέ.
+L
+java:S1481P"*Remove this unused "autor" local variable.(ƒΧΑεωÿÿÿÿ8πιªμέ.

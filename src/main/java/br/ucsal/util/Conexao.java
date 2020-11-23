@@ -5,38 +5,41 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Conexao {
-	private static Connection con;
-	static {
-		String url = "jdbc:postgresql://localhost:5432/tribrary";
-		String user = "postgres";
-		String password = "1234";
+    private static Connection con;
 
-		try {
-			Class.forName("org.postgresql.Driver");
-			con = DriverManager.getConnection(url, user, password);
-		} catch (ClassNotFoundException e1) {
-			System.out.println("erro: ClassNotFoundException");
-			e1.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			System.out.println("erro: SQLException");
-			e.printStackTrace();
-		}
-	}
+    static {
+        String url = "jdbc:postgresql://localhost:5432/tribrary";
+        String user = "postgres";
+        String password = "1234";
 
-	public static Connection getConnection() {
+        try {
+            Class.forName("org.postgresql.Driver");
+            con = DriverManager.getConnection(url, user, password);
+        } catch (ClassNotFoundException e1) {
+            System.out.println("erro: ClassNotFoundException");
+            e1.printStackTrace();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            System.out.println("erro: SQLException");
+            e.printStackTrace();
+        }
+    }
 
-		return con;
-	}
+    public static Connection getConnection() {
 
-	public static Boolean isConnectionValid() {
+        return con;
+    }
 
-		if (getConnection() != null) {
-			return true;
-		} else {
-			return false;
-		}
+    public static Boolean isConnectionValid() {
 
-	}
+        if (getConnection() != null) {
+
+            return true;
+        } else {
+
+            return false;
+        }
+
+    }
 
 }

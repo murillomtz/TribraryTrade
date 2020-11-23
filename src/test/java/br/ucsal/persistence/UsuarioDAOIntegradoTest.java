@@ -1,7 +1,7 @@
 package br.ucsal.persistence;
 
 
-import br.ucsal.builder.UsuarioBuilderModeNeiva;
+import br.ucsal.builders.UsuarioBuilderModeNeiva;
 import br.ucsal.dao.EnderecoDAO;
 import br.ucsal.dao.UsuarioDAO;
 import br.ucsal.model.Usuario;

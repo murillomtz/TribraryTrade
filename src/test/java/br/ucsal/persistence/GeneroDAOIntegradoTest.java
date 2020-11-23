@@ -1,7 +1,7 @@
 package br.ucsal.persistence;
 
 
-import br.ucsal.builder.GeneroBuilderModeNeiva;
+import br.ucsal.builders.GeneroBuilderModeNeiva;
 import br.ucsal.dao.GeneroDAO;
 import br.ucsal.model.Genero;
 import br.ucsal.util.Conexao;

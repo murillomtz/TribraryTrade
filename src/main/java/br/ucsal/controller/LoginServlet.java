@@ -33,10 +33,7 @@ public class LoginServlet extends HttpServlet {
 			request.getSession().setAttribute("usuario", user);
 			
 			request.getSession().setAttribute("idUsuario", user.getIdUsuario());
-			
-//			HttpSession sessaoUsuario = request.getSession();
-//	        sessaoUsuario.setAttribute("usuario",user);
-//	        sessaoUsuario.setMaxInactiveInterval(10);
+
 			request.getRequestDispatcher("/index.jsp").forward(request, response);
 		}else {
 			request.setAttribute("erro", "E-mail ou senha inválido!");

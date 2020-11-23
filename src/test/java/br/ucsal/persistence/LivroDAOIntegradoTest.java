@@ -1,6 +1,6 @@
 package br.ucsal.persistence;
 
-import br.ucsal.builder.LivroBuilderModeNeiva;
+import br.ucsal.builders.LivroBuilderModeNeiva;
 import br.ucsal.dao.GeneroDAO;
 import br.ucsal.dao.LivroDAO;
 import br.ucsal.dao.UsuarioDAO;

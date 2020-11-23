@@ -52,7 +52,7 @@ public class LivroSalvarServlet extends HttpServlet {
 //			e.printStackTrace();
 //		}
 //		System.out.println("PATH: "+fotoLivro);
-				
+
 
 		Livro livro = new Livro();
 		livro.setTitulo(titulo);
@@ -96,26 +96,7 @@ public class LivroSalvarServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		System.out.println("PATH: "+fotoLivro);
-		
-//		Livro livro = new Livro();
-//		livro.setTitulo(titulo);
-//		livro.setAutor(autor);
-//		livro.setSinopse(sinopse);
-//		livro.setDetalhes(detalhes);
-//		livro.setFotoLivro(fotoLivro);
-//
-//		GeneroDAO generoDAO = new GeneroDAO();
-//		int id = Integer.parseInt(generoID);
-//		Genero genero = generoDAO.buscarPorId(id);
-//		livro.setGenero(genero);
-//
-//		UsuarioDAO usuarioDAO = new UsuarioDAO();
-//		livro.setUsuario(usuarioDAO.buscarPorId(idUser));
-//
-//		LivroDAO livroDAO = new LivroDAO();
-//		livroDAO.inserir(livro);
-//
-//		request.getRequestDispatcher("index.jsp").forward(request, response);
+
 		request.setAttribute("pathFotoLivro", fotoLivro);
 		doPost(request, response);
 	}
