@@ -1,7 +1,6 @@
 package br.ucsal.jbehave;
 
 
-import org.jbehave.core.annotations.AfterScenario;
 import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
@@ -14,10 +13,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class JbehaveStoryOne {
 
-    private static WebDriver driver;
+    private WebDriver driver;
 
-//@AfterScenario VERIFICAR
-    @Given("um site com o link $link")
+    //@AfterScenario VERIFICAR
+    @Given("estou em um site com o link $link")
     public void getLink(String link) throws InterruptedException {
         System.setProperty("webdriver.chrome.driver", "drivers\\chromedriver.exe");
         driver = new ChromeDriver();

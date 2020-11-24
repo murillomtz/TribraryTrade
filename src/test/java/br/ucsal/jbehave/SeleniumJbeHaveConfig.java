@@ -1,5 +1,6 @@
 package br.ucsal.jbehave;
 
+import br.ucsal.selenium.SeleniumJbeHave;
 import org.jbehave.core.configuration.Configuration;
 import org.jbehave.core.configuration.Keywords;
 import org.jbehave.core.configuration.MostUsefulConfiguration;
@@ -19,7 +20,7 @@ import java.util.List;
 import java.util.Locale;
 
 
-public class JbehaveConfig extends JUnitStories {
+public class SeleniumJbeHaveConfig extends JUnitStories {
 
     @Override
     public Configuration configuration() {
@@ -33,12 +34,12 @@ public class JbehaveConfig extends JUnitStories {
     @Override
     protected List<String> storyPaths() {
         return new StoryFinder().findPaths(CodeLocations.codeLocationFromClass(this.getClass()),
-                Arrays.asList("**/login-user.story"), Arrays.asList(""));
+                Arrays.asList("**/login-selenium-jbeHave.story"), Arrays.asList(""));
     }
 
     @Override
     public InjectableStepsFactory stepsFactory() {
-        return new InstanceStepsFactory(configuration(), new JbehaveStoryOne());
+        return new InstanceStepsFactory(configuration(), new SeleniumJbeHave());
     }
 
 }
