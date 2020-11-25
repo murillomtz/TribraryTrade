@@ -35,7 +35,7 @@ public class SeleniumJbeHaveConfig extends JUnitStories {
     @Override
     protected List<String> storyPaths() {
         return new StoryFinder().findPaths(CodeLocations.codeLocationFromClass(this.getClass()),
-                Arrays.asList("**/*.story"), Arrays.asList(""));
+                Arrays.asList("**/login-selenium-jbeHave.story"), Arrays.asList(""));
     }
 
     @Override
