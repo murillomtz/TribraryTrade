@@ -5,8 +5,7 @@ import br.ucsal.builders.GeneroBuilderModeNeiva;
 import br.ucsal.dao.GeneroDAO;
 import br.ucsal.model.Genero;
 import br.ucsal.util.Conexao;
-import org.junit.Assert;
-import org.junit.jupiter.api.*;
+import org.junit.*;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -22,13 +21,13 @@ public class GeneroDAOIntegradoTest {
 
     private GeneroDAO dao;
 
-    @BeforeEach
+    @Before
     public void setup() throws SQLException {
         dao = new GeneroDAO();
         confereConexao();
     }
 
-    @AfterAll
+    @After
     public static void teardown() throws SQLException {
         confereConexao();
     }
@@ -37,19 +36,17 @@ public class GeneroDAOIntegradoTest {
     @Test
     public void GetConexaoTest() {
         Connection con = Conexao.getConnection();
-        Assertions.assertNotNull(con);
+        Assert.assertNotNull(con);
     }
 
     public static void confereConexao() throws SQLException {
-        Assumptions.assumeTrue(Conexao.isConnectionValid()); // se a connection nao for validada abortar os testes
+        Assume.assumeTrue(Conexao.isConnectionValid()); // se a connection nao for validada abortar os testes
         // livros.delete(ID_LISTA,Conexao.getConnection(), TAB_NAME);
     }
 
     /***/
     @Test
     public void listarTest() {
-
-
         List<Genero> generos = dao.listar();
 
         Assert.assertTrue(generos.size() >= 2);
@@ -62,14 +59,14 @@ public class GeneroDAOIntegradoTest {
         dao.inserir(genero);
         Genero generoEsperando = dao.buscarPorNome("Genero Builder");
 
-        Assertions.assertEquals("Genero Builder", generoEsperando.getNome());
+        Assert.assertEquals("Genero Builder", generoEsperando.getNome());
 
         generoEsperando.setNome("Genero Builder EDITADO");
 
         dao.editar(generoEsperando);
         generoEsperando = dao.buscarPorNome("Genero Builder EDITADO");
 
-        Assertions.assertEquals("Genero Builder EDITADO", generoEsperando.getNome());
+        Assert.assertEquals("Genero Builder EDITADO", generoEsperando.getNome());
 
         dao.deletar(generoEsperando.getIdGenero());
     }
@@ -77,7 +74,7 @@ public class GeneroDAOIntegradoTest {
     @Test
     public void buscarPorIDTest() throws Exception {
         Genero genero = dao.buscarPorId(1);
-        Assertions.assertEquals("Romance", genero.getNome());
+        Assert.assertEquals("Romance", genero.getNome());
 
     }
 

@@ -1,9 +1,9 @@
 package br.ucsal.selenium;
 
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -21,13 +21,13 @@ public class LoginJSPTest {
 
     private static WebDriver driver;
 
-    @BeforeAll
+    @Before
     public static void setup() {
         System.setProperty("webdriver.chrome.driver", "drivers\\chromedriver.exe");
         driver = new ChromeDriver();
     }
 
-    @AfterAll
+    @After
     public static void teardown() {
         driver.quit();
     }
@@ -53,7 +53,7 @@ public class LoginJSPTest {
         String conteudo = driver.getPageSource();
 
         // Verificar se retorno inclui "Cogna Educação"
-        
-        Assertions.assertEquals("http://localhost:8081/Login", driver.getCurrentUrl());
+
+        Assert.assertEquals("http://localhost:8081/Login", driver.getCurrentUrl());
     }
 }

@@ -54,6 +54,10 @@ public class LoginSelenium {
         return driver.getCurrentUrl();
     }
 
+    public void aguardar() throws InterruptedException {
+        Thread.sleep(5000);
+    }
+
 
     public static void teardown() {
         System.out.println("Chegou EXIT");

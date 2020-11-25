@@ -1,5 +1,9 @@
 package br.ucsal.jbehave;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.Locale;
+
 import br.ucsal.selenium.SeleniumJbeHave;
 import org.jbehave.core.configuration.Configuration;
 import org.jbehave.core.configuration.Keywords;
@@ -15,10 +19,6 @@ import org.jbehave.core.steps.InjectableStepsFactory;
 import org.jbehave.core.steps.InstanceStepsFactory;
 import org.jbehave.core.steps.MarkUnmatchedStepsAsPending;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Locale;
-
 
 public class SeleniumJbeHaveConfig extends JUnitStories {
 
@@ -31,10 +31,11 @@ public class SeleniumJbeHaveConfig extends JUnitStories {
                         Format.TXT, Format.HTML));
     }
 
+
     @Override
     protected List<String> storyPaths() {
         return new StoryFinder().findPaths(CodeLocations.codeLocationFromClass(this.getClass()),
-                Arrays.asList("**/login-selenium-jbeHave.story"), Arrays.asList(""));
+                Arrays.asList("**/*.story"), Arrays.asList(""));
     }
 
     @Override

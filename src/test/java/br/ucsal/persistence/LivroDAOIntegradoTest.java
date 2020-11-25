@@ -9,10 +9,10 @@ import br.ucsal.model.Livro;
 import br.ucsal.model.Usuario;
 import br.ucsal.util.Conexao;
 import org.junit.Assert;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Assumptions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Assume;
+import org.junit.Before;
+import org.junit.Test;
+
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -36,7 +36,7 @@ public class LivroDAOIntegradoTest {
 
     private GeneroDAO gdao;
 
-    @BeforeEach
+    @Before
     public void setup() throws SQLException {
         dao = new LivroDAO();
         generoDAO = new GeneroDAO();
@@ -71,7 +71,7 @@ public class LivroDAOIntegradoTest {
         dao.inserir(book);
         Livro livroEsperando = dao.buscarPorTitulo("LivroTest inserir");
 
-        Assertions.assertEquals("LivroTest inserir", livroEsperando.getTitulo());
+        Assert.assertEquals("LivroTest inserir", livroEsperando.getTitulo());
 
 
         dao.deletar(livroEsperando.getIdLivro());
@@ -93,7 +93,7 @@ public class LivroDAOIntegradoTest {
     @Test
     public void getConexaoTest() {
         Connection con = Conexao.getConnection();
-        Assertions.assertNotNull(con);
+        Assert.assertNotNull(con);
     }
 
     // Verifica o metodo BuscarPorID()
@@ -101,8 +101,8 @@ public class LivroDAOIntegradoTest {
     public void buscarPorIDTest() throws Exception {
         Livro livro = dao.buscarPorID(1);
 
-        Assertions.assertEquals("Kiera Cass", livro.getAutor());
-        Assertions.assertEquals("A seleção", livro.getTitulo());
+        Assert.assertEquals("Kiera Cass", livro.getAutor());
+        Assert.assertEquals("A seleção", livro.getTitulo());
 
     }
 
@@ -120,14 +120,14 @@ public class LivroDAOIntegradoTest {
 
         Livro livroEsperando = dao.buscarPorTitulo("LivroTest inserir");
 
-        Assertions.assertEquals("LivroTest inserir", livroEsperando.getTitulo());
+        Assert.assertEquals("LivroTest inserir", livroEsperando.getTitulo());
 
         livroEsperando.setTitulo("LivroTest EDITADO");
 
         dao.editar(livroEsperando);
         livroEsperando = dao.buscarPorTitulo("LivroTest EDITADO");
 
-        Assertions.assertEquals("LivroTest EDITADO", livroEsperando.getTitulo());
+        Assert.assertEquals("LivroTest EDITADO", livroEsperando.getTitulo());
 
 
         dao.deletar(livroEsperando.getIdLivro());
@@ -140,14 +140,14 @@ public class LivroDAOIntegradoTest {
 
         Livro livro = dao.buscarPorID(1);
 
-        Assertions.assertNotEquals("Kiera ", livro.getAutor());
-        Assertions.assertNotEquals("A s", livro.getTitulo());
+        Assert.assertNotEquals("Kiera ", livro.getAutor());
+        Assert.assertNotEquals("A s", livro.getTitulo());
 
     }
 
 
     public static void confereConexao() throws SQLException {
-        Assumptions.assumeTrue(Conexao.isConnectionValid()); // se a connection nao for validada abortar os testes
+        Assume.assumeTrue(Conexao.isConnectionValid()); // se a connection nao for validada abortar os testes
         // livros.delete(ID_LISTA,Conexao.getConnection(), TAB_NAME);
     }
 

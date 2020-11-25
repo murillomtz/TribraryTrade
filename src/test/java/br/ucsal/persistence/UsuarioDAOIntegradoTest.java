@@ -7,10 +7,9 @@ import br.ucsal.dao.UsuarioDAO;
 import br.ucsal.model.Usuario;
 import br.ucsal.util.Conexao;
 import org.junit.Assert;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Assumptions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Assume;
+import org.junit.Before;
+import org.junit.Test;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -28,7 +27,7 @@ public class UsuarioDAOIntegradoTest {
 
     private EnderecoDAO endDao;
 
-    @BeforeEach
+    @Before
     public void setup() throws SQLException {
         dao = new UsuarioDAO();
         endDao = new EnderecoDAO();
@@ -39,11 +38,11 @@ public class UsuarioDAOIntegradoTest {
     @Test
     public void GetConexaoTest() {
         Connection con = Conexao.getConnection();
-        Assertions.assertNotNull(con);
+        Assert.assertNotNull(con);
     }
 
     public static void confereConexao() throws SQLException {
-        Assumptions.assumeTrue(Conexao.isConnectionValid()); // se a connection nao for validada abortar os testes
+        Assume.assumeTrue(Conexao.isConnectionValid()); // se a connection nao for validada abortar os testes
         // livros.delete(ID_LISTA,Conexao.getConnection(), TAB_NAME);
     }
 
@@ -51,7 +50,7 @@ public class UsuarioDAOIntegradoTest {
     @Test
     public void listarTest() throws Exception {
         List<Usuario> usuarios = dao.listar();
-        System.out.println("Lista "+usuarios);
+        System.out.println("Lista " + usuarios);
 
         Assert.assertTrue(usuarios.size() >= 2);
     }
@@ -63,10 +62,10 @@ public class UsuarioDAOIntegradoTest {
         dao.inserir(usuario);
         Usuario usuarioEsperando = dao.buscarPorNome("Usuario Builder Insert");
 
-        Assertions.assertEquals("Usuario Builder Insert", usuarioEsperando.getNome());
+        Assert.assertEquals("Usuario Builder Insert", usuarioEsperando.getNome());
         usuarioEsperando.setNome("Usuario Builder EDITADO");
         dao.editar(usuarioEsperando);
-        Assertions.assertEquals("Usuario Builder EDITADO", usuarioEsperando.getNome());
+        Assert.assertEquals("Usuario Builder EDITADO", usuarioEsperando.getNome());
 
         //TODO precisa deletar antes o endereço para depois excluir o usuario ALTERAR O COMANDO SQL
         dao.deletar(usuarioEsperando.getIdUsuario());
@@ -76,7 +75,7 @@ public class UsuarioDAOIntegradoTest {
     @Test
     public void buscarParaLoginTest() {
         Usuario usuario = dao.buscarParaLogin("murillo@email.com", "12345");
-        Assertions.assertNotNull(usuario);
+        Assert.assertNotNull(usuario);
 
     }
 

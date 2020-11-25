@@ -3,8 +3,8 @@ package br.ucsal.controller;
 import br.ucsal.builders.UsuarioBuilderModeNeiva;
 import br.ucsal.dao.UsuarioDAO;
 import br.ucsal.model.Usuario;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 import org.mockito.Mockito;
 
 import javax.servlet.http.HttpServletRequest;
@@ -24,7 +24,7 @@ public class LoginServletTest {
     private LoginServlet servlet;
 
 
-    @BeforeEach
+    @Before
     public void init() throws IOException {
         servlet = new LoginServlet();
 
@@ -44,7 +44,6 @@ public class LoginServletTest {
         String email = "murillo@email.com";
         String senha = "12345";
         Usuario user = UsuarioBuilderModeNeiva.umUsuario().comEmail(email).comSenha(senha).build();
-
 
 
         when(req.getParameter("email")).thenReturn(email);
