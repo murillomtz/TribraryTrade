@@ -28,7 +28,7 @@ public class GeneroDAOIntegradoTest {
     }
 
     @After
-    public static void teardown() throws SQLException {
+    public void teardown() throws SQLException {
         confereConexao();
     }
 
@@ -54,7 +54,7 @@ public class GeneroDAOIntegradoTest {
     }
 
     @Test
-    public void inserirEditaDeletaTest() throws SQLException {
+    public void inserirEditaDeletaTest() {
         Genero genero = GeneroBuilderModeNeiva.umGenero().comNome("Genero Builder").build();
         dao.inserir(genero);
         Genero generoEsperando = dao.buscarPorNome("Genero Builder");

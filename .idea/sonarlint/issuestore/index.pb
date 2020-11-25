@@ -51,3 +51,5 @@ i
 9src/test/java/br/ucsal/jbehave/SeleniumJbeHaveConfig.java,e\e\ee238eef549ba56f46fc970863189cb0d587d312
 k
 ;src/test/java/br/ucsal/builders/GeneroBuilderModeNeiva.java,6\2\62cb17019895bf111533ebc34059df531b7c0ea6
+Y
+)src/main/java/br/ucsal/filter/Filter.java,1\8\18acc691c8a756abf90eb39c587697dffcd550fb
