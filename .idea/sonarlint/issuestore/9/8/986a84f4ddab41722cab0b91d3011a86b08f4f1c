@@ -1,48 +1,48 @@
 
-e
-java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ñÃ‰Ø
+k
+java:S1192#"PDefine a constant instead of duplicating this literal "disponibilidade" 5 times.(ü¼ËÕşÿÿÿÿ
 a
 java:S1192"FDefine a constant instead of duplicating this literal "autor" 5 times.(½•„²ûÿÿÿÿ
 f
-java:S1192%"KDefine a constant instead of duplicating this literal "id_usuario" 5 times.(àÅÜıÿÿÿÿ
-[	java:S1123"FDefine and throw a dedicated exception instead of using a generic one.(»Ïá³
-]
-java:S1192"GDefine a constant instead of duplicating this literal "titulo" 5 times.(éÑêá
-a	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(¥ïßòùÿÿÿÿ
-[	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(ó¥À”
-f
 java:S2095›"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ñÃ‰Ø
 f
-java:S2095Î"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ñÃ‰Ø
-k
-java:S1192#"PDefine a constant instead of duplicating this literal "disponibilidade" 5 times.(ü¼ËÕşÿÿÿÿ
-[	java:S112:"FDefine and throw a dedicated exception instead of using a generic one.(«şƒ”
+java:S1192%"KDefine a constant instead of duplicating this literal "id_usuario" 5 times.(àÅÜıÿÿÿÿ
 R	java:S125š"<This block of commented-out lines of code should be removed.(ÿ „
-e
-java:S2095>"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ñÃ‰Ø
 o
 java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ŠşâÓ
-p
-java:S2293—"YReplace the type specification in this constructor call with the diamond operator ("<>").(ŠşâÓ
-R	java:S125†"<This block of commented-out lines of code should be removed.(ñ‚ƒ¢
-f
-java:S1192""KDefine a constant instead of duplicating this literal "foto_livro" 5 times.(´çË€úÿÿÿÿ
-e
-java:S2095x"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ñÃ‰Ø
+[	java:S1123"FDefine and throw a dedicated exception instead of using a generic one.(»Ïá³
+[	java:S112t"FDefine and throw a dedicated exception instead of using a generic one.(İ«î
 j
 java:S2095a"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(–™ğäüÿÿÿÿ
+]
+java:S1192"GDefine a constant instead of duplicating this literal "titulo" 5 times.(éÑêá
 [	java:S112X"FDefine and throw a dedicated exception instead of using a generic one.(»Ïá³
 W	java:S125É"<This block of commented-out lines of code should be removed.(ßáıœÿÿÿÿÿ
-o
-java:S2293;"YReplace the type specification in this constructor call with the diamond operator ("<>").(ŠşâÓ
-_
-java:S1192$"JDefine a constant instead of duplicating this literal "id_genero" 5 times.(ôĞ_
-d
-java:S1192!"IDefine a constant instead of duplicating this literal "detalhes" 5 times.(Œ¼Õıÿÿÿÿ
-[	java:S112t"FDefine and throw a dedicated exception instead of using a generic one.(İ«î
-f
-java:S2095ç"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ñÃ‰Ø
 f
 java:S2095À"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ñÃ‰Ø
+[	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(ó¥À”
+e
+java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ñÃ‰Ø
+o
+java:S2293;"YReplace the type specification in this constructor call with the diamond operator ("<>").(ŠşâÓ
+d
+java:S1192!"IDefine a constant instead of duplicating this literal "detalhes" 5 times.(Œ¼Õıÿÿÿÿ
+R	java:S125†"<This block of commented-out lines of code should be removed.(ñ‚ƒ¢
+_
+java:S1192$"JDefine a constant instead of duplicating this literal "id_genero" 5 times.(ôĞ_
+f
+java:S1192""KDefine a constant instead of duplicating this literal "foto_livro" 5 times.(´çË€úÿÿÿÿ
+[	java:S112:"FDefine and throw a dedicated exception instead of using a generic one.(«şƒ”
+f
+java:S2095Î"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ñÃ‰Ø
 ]
 java:S1192 "HDefine a constant instead of duplicating this literal "sinopse" 5 times.(»Ğ“t
+a	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(¥ïßòùÿÿÿÿ
+p
+java:S2293—"YReplace the type specification in this constructor call with the diamond operator ("<>").(ŠşâÓ
+e
+java:S2095x"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ñÃ‰Ø
+e
+java:S2095>"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ñÃ‰Ø
+f
+java:S2095ç"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ñÃ‰Ø

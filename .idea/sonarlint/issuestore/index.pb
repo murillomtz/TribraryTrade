@@ -31,8 +31,6 @@ g
 7src/test/java/br/ucsal/controller/LoginServletTest.java,e\8\e8049d7bee286e31892c94879b7f805c7e39f391
 X
 (src/main/java/br/ucsal/util/Conexao.java,b\6\b637bfb43d8c0f1610768a929b382510c7071e3e
-a
-1src/test/java/br/ucsal/selenium/LoginJSPTest.java,1\0\104348509dbecee9fe0e21a9aceb79fb0d4966a0
 M
 src/main/webapp/livroForm.jsp,7\4\74bfcb6e0ebbf77ed65bc3ec191a7b742705473d
 m
@@ -53,3 +51,9 @@ k
 ;src/test/java/br/ucsal/builders/GeneroBuilderModeNeiva.java,6\2\62cb17019895bf111533ebc34059df531b7c0ea6
 Y
 )src/main/java/br/ucsal/filter/Filter.java,1\8\18acc691c8a756abf90eb39c587697dffcd550fb
+A
+system.properties,a\5\a5db35984da8ffa0e255c16a2e31ae7b26e7d222
+_
+/src/main/java/br/ucsal/sonar-project.properties,5\7\57c8313dfa4e7964b32610b9cbe233271a946f28
+H
+sonar-project.properties,2\5\2538046035efb77ecc44e1fd2eec1e2641594d4c

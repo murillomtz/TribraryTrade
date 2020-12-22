@@ -22,85 +22,72 @@ import br.ucsal.util.Upload;
  */
 @WebServlet("/LivroSalvar")
 public class LivroSalvarServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	public LivroSalvarServlet() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-
-		String titulo = request.getParameter("titulo");
-		String autor = request.getParameter("autor");
-		String sinopse = request.getParameter("sinopse");
-		String detalhes = request.getParameter("detalhes");
-		String fotoLivro = request.getParameter("fotoLivro");
-		String generoID =request.getParameter("genero");
-		Integer idUser =(Integer) request.getSession().getAttribute("idUsuario"); 
-
-//		try {
-//			fotoLivro = new Upload().anexos(request, response);
-//			if (fotoLivro!= null) {
-//
-//				System.out.print("Ficheiro enviado!");
-//			} else {
-//				System.out.print("Ficheiro não enviado!");
-//			}
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//		System.out.println("PATH: "+fotoLivro);
+    public LivroSalvarServlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
 
 
-		Livro livro = new Livro();
-		livro.setTitulo(titulo);
-		livro.setAutor(autor);
-		livro.setSinopse(sinopse);
-		livro.setDetalhes(detalhes);
-		livro.setFotoLivro(fotoLivro);
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
-		GeneroDAO generoDAO = new GeneroDAO();
-		int id = Integer.parseInt(generoID);
-		Genero genero = generoDAO.buscarPorId(id);
-		livro.setGenero(genero);
+        String titulo = request.getParameter("titulo");
+        String autor = request.getParameter("autor");
+        String sinopse = request.getParameter("sinopse");
+        String detalhes = request.getParameter("detalhes");
+        String fotoLivro = request.getParameter("fotoLivro");
+        String generoID = request.getParameter("genero");
+        Integer idUser = (Integer) request.getSession().getAttribute("idUsuario");
 
-		UsuarioDAO usuarioDAO = new UsuarioDAO();
-		livro.setUsuario(usuarioDAO.buscarPorId(idUser));
+        Livro livro = new Livro();
+        livro.setTitulo(titulo);
+        livro.setAutor(autor);
+        livro.setSinopse(sinopse);
+        livro.setDetalhes(detalhes);
+        livro.setFotoLivro(fotoLivro);
 
-		LivroDAO livroDAO = new LivroDAO();
-		livroDAO.inserir(livro);
+        GeneroDAO generoDAO = new GeneroDAO();
+        int id = Integer.parseInt(generoID);
+        Genero genero = generoDAO.buscarPorId(id);
+        livro.setGenero(genero);
 
-		request.getRequestDispatcher("index.jsp").forward(request, response);}
+        UsuarioDAO usuarioDAO = new UsuarioDAO();
+        livro.setUsuario(usuarioDAO.buscarPorId(idUser));
 
-	
-	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String titulo = request.getParameter("titulo");
-		String autor = request.getParameter("autor");
-		String sinopse = request.getParameter("sinopse");
-		String detalhes = request.getParameter("detalhes");
-		String fotoLivro = request.getParameter("fotoLivro");
-		String generoID =request.getParameter("genero");
+        LivroDAO livroDAO = new LivroDAO();
+        livroDAO.inserir(livro);
+
+        request.getRequestDispatcher("index.jsp").forward(request, response);
+    }
+
+
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String titulo = request.getParameter("titulo");
+        String autor = request.getParameter("autor");
+        String sinopse = request.getParameter("sinopse");
+        String detalhes = request.getParameter("detalhes");
+        String fotoLivro = request.getParameter("fotoLivro");
+        String generoID = request.getParameter("genero");
 //		Integer idUser = (Integer) request.getSession().getAttribute("idUsuario"); 
-		
-		try {
-			fotoLivro = new Upload().anexos(request, response);
-			if (fotoLivro!= null) {
 
-				System.out.print("Ficheiro enviado!");
-			} else {
-				System.out.print("Ficheiro não enviado!");
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		System.out.println("PATH: "+fotoLivro);
+        try {
+            fotoLivro = new Upload().anexos(request, response);
+            if (fotoLivro != null) {
 
-		request.setAttribute("pathFotoLivro", fotoLivro);
-		doPost(request, response);
-	}
-	
+                System.out.print("Ficheiro enviado!");
+            } else {
+                System.out.print("Ficheiro não enviado!");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        System.out.println("PATH: " + fotoLivro);
 
-	
+        request.setAttribute("pathFotoLivro", fotoLivro);
+        doPost(request, response);
+    }
+
+
 }

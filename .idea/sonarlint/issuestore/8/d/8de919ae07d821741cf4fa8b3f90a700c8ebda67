@@ -1,31 +1,31 @@
 
-e
-java:S2095Q"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ñÃ‰Ø
-f
-java:S2095±"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ñÃ‰Ø
 _
 java:S1192"IDefine a constant instead of duplicating this literal "telefone" 4 times.(ˆù¡é
+f
+java:S2095±"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ñÃ‰Ø
+W	java:S125Ï"<This block of commented-out lines of code should be removed.(‹îÓùùÿÿÿÿ
+e
+java:S2095m"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ñÃ‰Ø
 R	java:S125°"<This block of commented-out lines of code should be removed.(ÿ „
+f
+java:S2095Š"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ñÃ‰Ø
+a
+java:S1192"FDefine a constant instead of duplicating this literal "senha" 4 times.(šï¶®ùÿÿÿÿ
 c
 java:S1192"MDefine a constant instead of duplicating this literal "pontos_troca" 4 times.(‹€—É
 P
 java:S1135†"2Complete the task associated to this TODO comment.(‘®Ò8öŒØïÝ.
-f
-java:S2095Š"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ñÃ‰Ø
-e
-java:S20950"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ºÉœŽ
+b
+java:S1192"LDefine a constant instead of duplicating this literal "nome_social" 4 times.(øµö¸
 f
 java:S2095—"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ñÃ‰Ø
 e
-java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(”®Ãœ
-b
-java:S1192"LDefine a constant instead of duplicating this literal "nome_social" 4 times.(øµö¸
-[
-java:S1192"FDefine a constant instead of duplicating this literal "email" 4 times.(þÿßL
-W	java:S125Ï"<This block of commented-out lines of code should be removed.(‹îÓùùÿÿÿÿ
-a
-java:S1192"FDefine a constant instead of duplicating this literal "senha" 4 times.(šï¶®ùÿÿÿÿ
+java:S2095Q"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ñÃ‰Ø
+e
+java:S20950"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ºÉœŽ
 b
 java:S1192_"LDefine a constant instead of duplicating this literal "conta_ativa" 3 times.(úÿô¬
 e
-java:S2095m"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ñÃ‰Ø
+java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(”®Ãœ
+[
+java:S1192"FDefine a constant instead of duplicating this literal "email" 4 times.(þÿßL

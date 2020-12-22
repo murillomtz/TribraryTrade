@@ -45,6 +45,6 @@ public class SeleniumJbeHave {
         String linkObtido = login.obterResultado();
 
         System.out.println("LINK ESPERADO" + linkObtido);
-        //Assert.assertEquals(linkEsperado, linkObtido);
+        Assert.assertEquals(linkEsperado, linkObtido);
     }
 }

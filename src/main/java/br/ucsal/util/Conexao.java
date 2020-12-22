@@ -8,12 +8,12 @@ public class Conexao {
     private static Connection con;
 
     static {
-        String url = "jdbc:postgresql://localhost:5432/tribrary";
-        String user = "postgres";
+        String url = "jdbc:mysql://localhost/tribary?useTimezone=true&serverTimezone=UTC";
+        String user = "root";
         String password = "1234";
 
         try {
-            Class.forName("org.postgresql.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection(url, user, password);
         } catch (ClassNotFoundException e1) {
             System.out.println("erro: ClassNotFoundException");
